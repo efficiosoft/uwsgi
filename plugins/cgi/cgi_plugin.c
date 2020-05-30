@@ -714,6 +714,7 @@ static int uwsgi_cgi_run(struct wsgi_request *wsgi_req, char *docroot, size_t do
 					kill_on_error
 					goto clear2;
 				}
+				uwsgi_log("chunk received: %d\n", ubuf->pos);
 				if (!ubuf->pos) {
 					// Last chunk received, go and close process's stdin
 					uwsgi_buffer_destroy(ubuf);
